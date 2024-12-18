@@ -1,4 +1,5 @@
-import React from 'react'
+import { GiHamburgerMenu } from "react-icons/gi";
+import { RiCloseLargeLine } from "react-icons/ri";
 import { IoSearchSharp } from "react-icons/io5";
 import { GiShoppingCart } from "react-icons/gi";
 import { FaUserGear } from "react-icons/fa6";
@@ -20,7 +21,7 @@ function Navbar() {
   const navigate = useNavigate()
   const [search, setSearchTerm] = useState('')
 
-  const { products, setFilteredProducts, logOutUser, isAuthent , cart} = useContext(AppContext)
+  const { products, setFilteredProducts, logOutUser, isAuthent, cart } = useContext(AppContext)
 
   const noFilter = () => {
     setFilteredProducts(products)
@@ -40,50 +41,149 @@ function Navbar() {
     setSearchTerm('')
   }
 
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => setIsOpen(!isOpen);
   return (
     <>
-      <div className='flex justify-between p-3 bg-gradient-to-r pt-6  from-blue-700 to-blue-400 z-10 shadow-2xl sticky top-0 left-0 right-0'>
 
-        <div >
-          <Link to={'/'}><h1 className=' rounded-sm font-serif font-semibold flex items-center '>shop </h1></Link>
+      <div className=' hidden flex flex-row   md:block justify-between p-3 bg-gradient-to-r pt-6  from-blue-700 to-blue-400 z-10 shadow-2xl sticky top-0 left-0 right-0'>
+        <div className='flex' >
+          <Link to={'/'}><img className='h-7  rounded-md ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
+
+          <form className=' w-[45%] flex ml-[10%]'>
+            <input className='w-full rounded-md outline-none  text-black px-2' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='Search products' />
+            <button onClick={submitHandle}> <IoSearchSharp className="relative right-6  text-xl text-black" /></button>
+          </form>
+
         </div>
 
-        <form className=' w-[45%] flex'>
-          <input className='w-full rounded-md outline-none text-black px-2' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='Search products' />
-          <button onClick={submitHandle}> <IoSearchSharp className="relative right-6  text-xl text-black" /></button>
-        </form>
-
         {/* btns */}
-        <div className=' w-[36%] flex justify-between font-semibold items-center'>
-        {
-          isAuthent ? <>
-          <div ><button><span className='text-[10px]  rounded-full  underline font-bold '>{cart?.items?.length}</span><Link to={'/cart'}><GiShoppingCart className='text-2xl hover:text-black relative -top-2' /></Link></button></div>
-          <Link to={'/profile'}> <FaUserGear className='text-2xl hover:text-black' /> </Link>
-          <button className='bg-red-800 hover:bg-red-900 px-2 py-1 rounded-md text-white flex justify-center items-center gap-1 text-sm' onClick={() => {
-            logOutUser()
-            navigate('/')
-          }}>Logout <MdOutlineLogout /></button>
+        <div className=' w-[36%]  items-center  flex absolute left-[60%] bottom-1 flex-row justify-between font-semibold '>
+          {
+            isAuthent ? <div className='flex items-center justify-between  w-full'>
+              <div className='mt-3 flex justify-center items-center  ' >
+                <button><span className='text-[10px]  rounded-full  border bg-red-500 px-1 text-[8px]  font-bold '>{cart?.items?.length}</span><Link to={'/cart'}><GiShoppingCart className='text-2xl text-black relative -top-2' /></Link></button></div>
 
-          </> : <>
-            <div className=' mx-auto w-[34%] flex justify-between'>
-          <Link to={'/login'}> <button className='  bg-blue-700  px-2 p-1 rounded-xl  text-white  text-sm'>login</button></Link>
-          <Link to={'register'}><button className='bg-blue-900  px-2 rounded-xl text-white p-1 text-sm'>Register</button></Link>
-             </div>
-          </>
-        }
+
+              <Link to={'/profile'} className='mt-6'> <FaUserGear className='text-2xl hover:text-black' /> </Link>
+              <button className='bg-red-800 mt-6 hover:bg-red-900 px-2 py-1 rounded-md text-white flex justify-center items-center gap-1 text-sm' onClick={() => {
+                logOutUser()
+                navigate('/')
+              }}>Logout <MdOutlineLogout /></button>
+
+            </div> : <>
+              <div className=' mx-auto  w-[34%]  flex justify-between  items-center mr-[10%]'>
+
+                <div className='flex  w-[200px] justify-between'>
+                  <Link to={'/login'}> <button className='  bg-green-600 text-white py-1 font-thin hover:text-black -tracking-wider line-h-full text-thin shadow-sm px-2    mb-1 rounded-md    md:text-sm'>LOGIN</button></Link>
+                  <Link to={'register'}><button className='bg-blue-600 text-white py-1 font-thin hover:text-black -tracking-wider line-h-full text-thin  shadow-sm px-2 ml-4  rounded-md  p-1 md:text-sm'>REGISTER</button></Link>
+                </div>
+              </div>
+            </>
+          }
         </div>
 
       </div>
       {/* sub bar right  */}
+      <div className='   bg-blue-400  flex justify-between  md:hidden'>
+
+        <div className=' flex justify-evenly   items-center'>
+
+          <div className=' p-2'>
+            <Link to={'/'}>
+              <img className='h-auto    w-[230px]  ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
+          </div>
+          <form className=' w-[350%] ml-4 font-thin  text-[8px] flex'>
+            <input className='w-full rounded-sm   outline-none px-4 text-black p-1 mt-1' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='...' />
+            <button onClick={submitHandle}> <IoSearchSharp className="relative right-6 mt-1  text-sm md:text-xl text-black" /></button>
+          </form>
+
+        </div>
+
+        {
+          isAuthent ? (
+            <div className="flex justify-between    w-[120px]  items-center p-1">
+              {/* Cart Icon */}
+              <div >
+                <button className=' flex  flex-col items-center'>
+                  <span className=" border bg-red-500 px-1 text-[8px] m-[2px]   rounded-full mt-3  font-bold">
+                    {cart?.items?.length}
+                  </span>
+                  <Link to={"/cart"}>
+                    <GiShoppingCart className="text-2xl text-black   relative -top-2" />
+                  </Link>
+                </button>
+              </div>
+
+              <div className="relative">
+                {/* Dropdown Trigger */}
+                <button
+                  className=" text-white px-2  m-2 rounded-md text-sm md:text-base"
+                  onClick={() => toggleDropdown((prev) => !prev)}
+                >
+                  {isOpen ? <RiCloseLargeLine /> : <GiHamburgerMenu />}
+                </button>
+
+                {/* Dropdown Menu */}
+                {isOpen && (
+                  <div className="absolute     bg-blue-400 -right-[4px] rounded-bl-md  mt-2 w-40  border-gray-200 shadow-lg z-20">
+                    <ul className="py-1">
+                      <li>
+                        <Link
+                          to="/profile"
+                          className="block underline px-4 py-2 text-sm text-blue-800 font-semibold hover:bg-gray-100"
+                          onClick={() => toggleDropdown((prev) => !prev)}
+                        >
+                          Profile
+                        </Link>
+                      </li>
+
+                      <li>
+                        <button
+                          onClick={() => {
+                            logOutUser();
+                            navigate("/");
+                            toggleDropdown((prev) => !prev)
+                          }}
+                          className="block w-full underline text-red-800 font-semibold text-left px-4 py-2 text-sm  hover:bg-gray-100"
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className=" w-[34%] gap-x-2 mt-[2px] flex py-2 items-center justify-end ">
+                <Link to={"/login"}>
+                  <button className=" bg-green-600 text-white py-[1px] font-thin hover:text-black -tracking-wider line-h-full text-thin shadow-sm px-2    mb-1     md:text-smrounded-sm text-[9px]  ">
+                    Login
+                  </button>
+                </Link>
+                <Link to={"register"}>
+                  <button className=" bg-blue-600 text-white py-[1px]  py-1 font-thin hover:text-black -tracking-wider line-h-full text-thin   mb-1  mr-2   md:text-sm px-2 text-[9px] shadow-lg ">
+                    Register
+                  </button>
+                </Link>
+              </div>
+            </>
+          )
+        }
+
+      </div>
 
       {location.pathname === '/' && (
-        <div className='bg-gradient-to-r from-pink-300 to-blue-400  text-white text-sm font-serif flex justify-around px-4 py-1 z-10  fixed sticky top-[80px] left-0 right-0'>
-          <span className='text-black font-semibold'>Categorys :</span>
-          <button onClick={() => noFilter(products)} className='rounded-md px-2 bg-red-500 hover:text-black hover:bg-red-600   cursor-pointer'>All</button>
-          <button onClick={() => filterByCategory("mobile")} className='flex items-center gap-1 rounded-md rounded-md px-2 bg-red-500 hover:text-black hover:bg-red-600   cursor-pointer'>Mobile <LiaMobileSolid className='text-black' /></button>
-          <button onClick={() => filterByCategory('earbuds')} className='flex items-center gap-1 rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Earbuds <SlEarphones className='text-black' /></button>
-          <button onClick={() => filterByCategory('watch')} className='flex items-center gap-1 rounded-md  rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Watch <IoMdWatch className='text-black' /></button>
-          <button onClick={() => filterByCategory('laptop')} className=' flex items-center gap-1 rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Laptop <IoIosLaptop className='text-black' /></button>
+        <div className='bg-gradient-to-r from-pink-300 to-blue-400  text-white text-sm font-serif flex justify-around px-4 py-1 z-10    top-[53px] left-0 right-0'>
+          <button onClick={() => noFilter(products)} className='rounded-md  text-[7px] md:text-[12px] px-2 bg-red-500 hover:text-black hover:bg-red-600   cursor-pointer'>All</button>
+          <button onClick={() => filterByCategory("mobile")} className='flex text-[7px] md:text-[12px]  items-center gap-1 rounded-md rounded-md px-2 bg-red-500 hover:text-black hover:bg-red-600   cursor-pointer'>Mobile <LiaMobileSolid className='text-black' /></button>
+          <button onClick={() => filterByCategory('earbuds')} className='flex text-[7px] md:text-[12px]  items-center gap-1 rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Earbuds <SlEarphones className='text-black' /></button>
+          <button onClick={() => filterByCategory('watch')} className='flex text-[7px] md:text-[12px]  items-center gap-1 rounded-md  rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Watch <IoMdWatch className='text-black' /></button>
+          <button onClick={() => filterByCategory('laptop')} className=' flex text-[7px] md:text-[12px]  items-center gap-1 rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Laptop <IoIosLaptop className='text-black' /></button>
         </div>)}
     </>
   )

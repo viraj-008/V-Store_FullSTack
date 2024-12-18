@@ -3,8 +3,6 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import AppContext from './AppContext.jsx'
 import axios from 'axios'
-
-
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,7 +20,20 @@ const AppState = (props) => {
   const [reloed,setreloed] = useState(false)
   const [cartloed, setCartloed] = useState(false)
   
+  const [buyNowProduct, setBuyNowProduct] = useState(() => {
+    const storedProduct = localStorage.getItem('buyNowProduct');
+    return storedProduct ? JSON.parse(storedProduct) : null;
+  });
   
+  useEffect(() => {
+    if (buyNowProduct) {
+      localStorage.setItem('buyNowProduct', JSON.stringify(buyNowProduct));
+    } else {
+      localStorage.removeItem('buyNowProduct');
+    }
+  }, [buyNowProduct]);
+  
+
   const url = "http://localhost:1000/api"
 
   useEffect(() => {
@@ -193,6 +204,7 @@ useEffect(()=>{
       setCart(api.data.cart)
     };
 
+    
     // decrese product id 
     const decraseQty = async (productId,qty) => {
       const api = await axios.post(`${url}/cart/--qty`,{productId,qty}, {
@@ -294,6 +306,9 @@ const getAddress = async (fullName,country,state,city,pincode,phoneNumber, adres
   setUserAdress(api.data.userAdrss)
 
 }
+useEffect(() => {
+  getAddress();
+}, []);
   return (
     <AppContext.Provider value={{
       products,
@@ -309,6 +324,8 @@ const getAddress = async (fullName,country,state,city,pincode,phoneNumber, adres
       isAuthent,
       user,
       addToCart,
+      buyNowProduct, 
+      setBuyNowProduct,
       cart,
       cartloed,
       decraseQty,
