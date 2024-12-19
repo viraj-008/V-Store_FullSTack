@@ -29,12 +29,12 @@ function SearchProduct() {
     return (
         <>
             {searchProduct.length > 0 && (<div className='text-center  text-black'>
-                <h1 className='text-2xl font-bold my-4 underline'>Your searched products</h1>
+                <h1 className='text-2xl font-bold my-4 underline' >Your searched products</h1>
 
                 <div className='flex  my-4 grid grid-cols-2 p-4 md:grid-cols-3  gap-x-8 '>
                 {searchProduct.map((data) => {
     return (
-        <div
+        <div data-aos="fade-up"
             className="bg-white mx-auto m-2 rounded-lg overflow-hidden shadow-lg ring-4 ring-red-500 ring-opacity-40 max-w-sm sm:max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl"
             key={data._id}
         >

@@ -70,8 +70,8 @@ function Address() {
   };
 
   return (
-    <div className="bg-indigo-400 min-h-screen p-6">
-      <h1 className="text-center font-semibold text-2xl underline text-black">
+    <div className="bg-slate-900 min-h-screen p-6">
+      <h1 className="text-center font-semibold text-2xl underline text-gray-400">
         Shipping Address
       </h1>
       <form onSubmit={handleSubmit} className="mt-8 max-w-4xl mx-auto">

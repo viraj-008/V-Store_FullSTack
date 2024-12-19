@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import ShowProducts from './componenet/products/ShowProducts'
 import ProductDetail from './componenet/products/ProductDetail'
 import Navbar from './componenet/Navbar'
@@ -13,18 +13,28 @@ import Address from './componenet/Address'
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function App() {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, 
+      once: true, 
+    });
+  }, []);
 
 
   return (
 
-    <div className=' '>
+    <div>
     <Router>
     <ToastContainer />
     <Navbar/>
       <Routes>
+      
         <Route path='/product/search/:term' element={<SearchProduct/>} />
-
         <Route path='/' element={<ShowProducts />} />
         <Route path='/product/:id' element={<ProductDetail/>} />
         <Route path='/register' element={<Register/>} />
@@ -33,9 +43,7 @@ function App() {
         <Route path='/cart' element={<Cart/>} />
         <Route path='/adress' element={<Address />} />
         <Route path='/checkout' element={<CheckOut />} />
-        
-
-
+  
       </Routes>
     </Router>
     </div>

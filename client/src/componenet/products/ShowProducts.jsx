@@ -6,13 +6,13 @@ function ShowProducts() {
   const { products, filterProducts, addToCart } = useContext(AppContext);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 px-4">
+    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 px-4" >
       {filterProducts?.map((data) => (
-        <div
+        <div data-aos="fade-right"
           className="bg-white mb-4 lg:min-w-[310px]  max-w-[400px]  rounded-lg shadow-lg overflow-hidden ring-2 ring-red-700 ring-opacity-40 mx-auto"
           key={data._id}
         >
-          <div className="relative">
+          <div className="relative" >
             <Link to={`/product/${data._id}`}>
               <img
                 className="w-full h-40 object-contain p-2"

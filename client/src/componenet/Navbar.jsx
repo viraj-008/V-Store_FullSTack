@@ -48,13 +48,13 @@ function Navbar() {
   return (
     <>
 
-      <div className=' hidden flex flex-row   md:block justify-between p-3 bg-gradient-to-r pt-6  from-blue-700 to-blue-400 z-10 shadow-2xl sticky top-0 left-0 right-0'>
+      <div  className=' hidden flex flex-row   md:block justify-between p-3 bg-gradient-to-r pt-6  from-blue-700 to-blue-400 z-10 shadow-2xl sticky top-0 left-0 right-0'>
         <div className='flex' >
-          <Link to={'/'}><img className='h-7  rounded-md ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
+          <Link to={'/'}><img className='h-7 animate-bounce  rounded-md ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
 
           <form className=' w-[45%] flex ml-[10%]'>
-            <input className='w-full rounded-md outline-none  text-black px-2' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='Search products' />
-            <button onClick={submitHandle}> <IoSearchSharp className="relative right-6  text-xl text-black" /></button>
+            <input className='w-full rounded-md outline-none bg-blue-400  text-black px-2' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='Search products' />
+            <button onClick={submitHandle}> <IoSearchSharp className="relative right-6  text-xl text-white" /></button>
           </form>
 
         </div>
@@ -77,8 +77,8 @@ function Navbar() {
               <div className=' mx-auto  w-[34%]  flex justify-between  items-center mr-[10%]'>
 
                 <div className='flex  w-[200px] justify-between'>
-                  <Link to={'/login'}> <button className='  bg-green-600 text-white py-1 font-thin hover:text-black -tracking-wider line-h-full text-thin shadow-sm px-2    mb-1 rounded-md    md:text-sm'>LOGIN</button></Link>
-                  <Link to={'register'}><button className='bg-blue-600 text-white py-1 font-thin hover:text-black -tracking-wider line-h-full text-thin  shadow-sm px-2 ml-4  rounded-md  p-1 md:text-sm'>REGISTER</button></Link>
+                  <Link to={'/login'}> <button className='px-2 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium rounded-full hover:text-black group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500  dark:text-white text-white focus:ring-4 focus:outline-non'>LOGIN</button></Link>
+                  <Link to={'register'}><button className="px-2 relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium rounded-full hover:text-black group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500  dark:text-white text-white focus:ring-4 focus:outline-non">REGISTER</button></Link>
                 </div>
               </div>
             </>
@@ -93,11 +93,11 @@ function Navbar() {
 
           <div className=' p-2'>
             <Link to={'/'}>
-              <img className='h-auto    w-[230px]  ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
+              <img className='h-auto  animate-pulse   w-[230px]  ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
           </div>
           <form className=' w-[350%] ml-4 font-thin  text-[8px] flex'>
-            <input className='w-full rounded-sm   outline-none px-4 text-black p-1 mt-1' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='...' />
-            <button onClick={submitHandle}> <IoSearchSharp className="relative right-6 mt-1  text-sm md:text-xl text-black" /></button>
+            <input className='w-full rounded-sm bg-blue-500  outline-none px-4 text-black p-1 mt-1' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='...' />
+            <button onClick={submitHandle}> <IoSearchSharp className="relative right-6 mt-1  text-sm md:text-xl text-white" /></button>
           </form>
 
         </div>
@@ -161,12 +161,12 @@ function Navbar() {
             <>
               <div className=" w-[34%] gap-x-2 mt-[2px] flex py-2 items-center justify-end ">
                 <Link to={"/login"}>
-                  <button className=" bg-green-600 text-white py-[1px] font-thin hover:text-black -tracking-wider line-h-full text-thin shadow-sm px-2    mb-1     md:text-smrounded-sm text-[9px]  ">
+                  <button className="px-2 hover:text-black relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-[8px] font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500  dark:text-white focus:ring-4 focus:outline-none   ">
                     Login
                   </button>
                 </Link>
                 <Link to={"register"}>
-                  <button className=" bg-blue-600 text-white py-[1px]  py-1 font-thin hover:text-black -tracking-wider line-h-full text-thin   mb-1  mr-2   md:text-sm px-2 text-[9px] shadow-lg ">
+                  <button className="px-2 hover:text-black relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-[8px] font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500  dark:text-white focus:ring-4 focus:outline-none  ">
                     Register
                   </button>
                 </Link>
@@ -178,7 +178,7 @@ function Navbar() {
       </div>
 
       {location.pathname === '/' && (
-        <div className='bg-gradient-to-r from-pink-300 to-blue-400  text-white text-sm font-serif flex justify-around px-4 py-1 z-10    top-[53px] left-0 right-0'>
+        <div data-aos="slide-left" data-aos-duration="1000"  className='bg-gradient-to-r from-pink-300 to-blue-400  text-white text-sm font-serif flex justify-around px-4 py-1 z-10    top-[53px] left-0 right-0'>
           <button onClick={() => noFilter(products)} className='rounded-md  text-[7px] md:text-[12px] px-2 bg-red-500 hover:text-black hover:bg-red-600   cursor-pointer'>All</button>
           <button onClick={() => filterByCategory("mobile")} className='flex text-[7px] md:text-[12px]  items-center gap-1 rounded-md rounded-md px-2 bg-red-500 hover:text-black hover:bg-red-600   cursor-pointer'>Mobile <LiaMobileSolid className='text-black' /></button>
           <button onClick={() => filterByCategory('earbuds')} className='flex text-[7px] md:text-[12px]  items-center gap-1 rounded-md px-2 bg-red-500 hover:text-black  hover:bg-red-600 cursor-pointer'>Earbuds <SlEarphones className='text-black' /></button>

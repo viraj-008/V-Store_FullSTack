@@ -25,11 +25,11 @@ function RelatedProduts({category})
   <div className='flex  my-4 grid grid-cols-2 p-4 md:grid-cols-3  gap-x-8 '>
   {relatedProduct.map((data) => {
     return (
-        <div
+        <div 
             className="bg-white mx-auto  m-2 rounded-lg overflow-hidden shadow-lg ring-4 ring-red-500 ring-opacity-40 max-w-sm sm:max-w-xs md:max-w-md lg:max-w-lg"
             key={data._id}
         >
-            <div className="relative">
+            <div className="relative" >
                 <img
                     className="w-full h-auto mx-auto pt-4 sm:max-w-[80%] md:max-w-[70%] lg:max-w-[65%]"
                     src={data.imgSrc}
@@ -39,15 +39,15 @@ function RelatedProduts({category})
                     SALE
                 </div>
             </div>
-            <div className="p-4">
+            <div className="p-4" data-aos="slide-left"  data-aos-duration="600">
                 <h3 className="text-sm sm:text-base md:text-lg font-medium mb-2">
                     TITLE: {data.title}
                 </h3>
-                <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-4">
+                <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-4" data-aos="slide-left"  data-aos-duration="600">
                     <span>DESCRIPTION: {data.discrition}</span>
                 </p>
                 <div className="flex flex-wrap items-center justify-between">
-                    <span className="font-bold text-sm sm:text-base md:text-lg">
+                    <span className="font-bold text-sm sm:text-base md:text-lg" data-aos="slide-left"  data-aos-duration="600">
                         <span>Rs </span>
                         {data.price}
                     </span>
