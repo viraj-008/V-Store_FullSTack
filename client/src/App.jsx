@@ -29,8 +29,8 @@ function App() {
   return (
 
     <div>
-    <Router>
     <ToastContainer />
+    <Router>
     <Navbar/>
       <Routes>
       

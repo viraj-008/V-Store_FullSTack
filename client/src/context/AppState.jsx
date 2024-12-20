@@ -71,12 +71,12 @@ const AppState = (props) => {
         },
         withCredentials: true
       });
-
-      console.log("user registered", api)
-      return api
+     console.log(api)
+      return api 
 
     } catch (err) {
-      console.log('ere catc', api)
+      console.log('errr', err.response.data.message)
+      toast.error(err.response.data.message)
     }
   }
 
@@ -89,7 +89,7 @@ const AppState = (props) => {
         },
         withCredentials: true
       });
-
+  console.log(api.data.message)
       toast(api.data.message, {
         position: "top-right",
         autoClose: 5000,
@@ -174,6 +174,7 @@ useEffect(()=>{
         },
         withCredentials: true
       });
+      console.log(api.data.message)
     toast(api.data.message, {
       position: "top-right",
       autoClose: 5000,
@@ -186,7 +187,7 @@ useEffect(()=>{
       transition: Bounce,
     })
 
-    setreloed(!reloed)
+    setreloed((prev) => !prev);
     };
 
     //  get users cart item 

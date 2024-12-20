@@ -1,3 +1,4 @@
+import AppContext from '../context/AppContext';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiCloseLargeLine } from "react-icons/ri";
 import { IoSearchSharp } from "react-icons/io5";
@@ -6,7 +7,6 @@ import { FaUserGear } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AppContext from '../context/AppContext';
 import { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import { MdOutlineLogout } from "react-icons/md";
@@ -53,7 +53,7 @@ function Navbar() {
           <Link to={'/'}><img className='h-7 animate-bounce  rounded-md ' src='https://cdn.pixabay.com/photo/2015/04/18/07/49/shopping-cart-728430_960_720.png' /></Link>
 
           <form className=' w-[45%] flex ml-[10%]'>
-            <input className='w-full rounded-md outline-none bg-blue-400  text-black px-2' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='Search products' />
+            <input className='w-full rounded-md outline-none bg-blue-400  text-black px-2' value={search} onChange={(e) => setSearchTerm(e.target.value)} type='text' placeholder='' />
             <button onClick={submitHandle}> <IoSearchSharp className="relative right-6  text-xl text-white" /></button>
           </form>
 
@@ -133,7 +133,7 @@ function Navbar() {
                       <li>
                         <Link
                           to="/profile"
-                          className="block underline px-4 py-2 text-sm text-blue-800 font-semibold hover:bg-gray-100"
+                          className="block underline px-4 py-2 text-sm text-blue-800 font-semibold rounded-md m-8 hover:text-blue-600 "
                           onClick={() => toggleDropdown((prev) => !prev)}
                         >
                           Profile
@@ -143,11 +143,12 @@ function Navbar() {
                       <li>
                         <button
                           onClick={() => {
-                            logOutUser();
+                            logOutUser()
+                           
                             navigate("/");
                             toggleDropdown((prev) => !prev)
                           }}
-                          className="block w-full underline text-red-800 font-semibold text-left px-4 py-2 text-sm  hover:bg-gray-100"
+                          className="block w-full underline text-red-800 font-semibold text-left px-4 py-2 text-sm rounded-md m-8 hover:text-red-600"
                         >
                           Logout
                         </button>
