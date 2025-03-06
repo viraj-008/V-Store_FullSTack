@@ -25,13 +25,15 @@ function ShowProducts() {
             </div>
           </div>
           <div className="p-4">
-            <h3 className="text-sm font-medium text-black mb-2">
-              TITLE: {data.title}
+            <h3 className="text-sm font-medium text-gray-600  mb-2">
+              <span className='text-black font-bold'>TITLE:</span> {data.title}
             </h3>
             <p className="text-gray-600 text-xs mb-4">
-              DESCRIPTION: {data.discrition}
+             <span className='text-black font-semibold'>DESCRIPTION:</span>  {data.discrition}
             </p>
-            <div className="flex items-center justify-between">
+
+          <div > 
+            <div className="flex  items-center justify-between">
               <span className="font-bold text-sm text-black">
                 Rs. {data.price}
               </span>
@@ -45,10 +47,11 @@ function ShowProducts() {
                     data.imgSrc
                   )
                 }
-                className="bg-blue-500 text-[8px] sm:text-[10px] hover:bg-blue-600 text-white font-bold py-1 px-2 rounded "
+                className="bg-blue-500 text-[8px]  sm:text-[10px] hover:bg-blue-600 text-white font-bold py-1 px-2 rounded "
               >
                 Add to Cart
               </button>
+            </div>
             </div>
           </div>
         </div>

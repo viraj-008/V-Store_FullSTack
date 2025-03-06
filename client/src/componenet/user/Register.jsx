@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -27,7 +27,7 @@ function Register() {
     setLoading(false);
 
     if (result.data.success) {
-      alert(result.data.massege);
+      // alert(result.data.massege);
       navigate('/login');
     } else {
       toast.error(result.data.message);
@@ -135,7 +135,6 @@ function Register() {
               </div>
             </div>
           </div>
-          <ToastContainer />
         </Form>
       )}
     </Formik>

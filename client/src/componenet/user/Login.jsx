@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { ToastContainer, toast } from 'react-toastify';
+import { Bounce, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AppContext from '../../context/AppContext';
 
@@ -30,7 +30,6 @@ function Login() {
     onSubmit: async (values) => {
       const result = await LoginUser(values.email, values.password);
       if (result.success) {
-        alert("Login Sucessfull",result?.message)
         navigate('/');
       } else {
         toast.error(result.message || 'Login failed');
@@ -132,7 +131,6 @@ function Login() {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </form>
   );
 }

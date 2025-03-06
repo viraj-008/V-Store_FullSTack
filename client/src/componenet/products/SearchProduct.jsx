@@ -50,10 +50,10 @@ function SearchProduct() {
             </div>
             <div className="p-4">
                 <h3 className="text-sm sm:text-base md:text-lg font-medium mb-2">
-                    TITLE: {data.title}
+                    <span className='font-bold'>TITLE: </span>{data.title}
                 </h3>
                 <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-4">
-                    <span>DESCRIPTION: {data.discrition}</span>
+                    <span className='font-semibold text-black'> DESCRIPTION: </span>{data.discrition}
                 </p>
                 <div className="flex flex-wrap items-center justify-between">
                     <span className="font-bold text-sm sm:text-base md:text-lg">

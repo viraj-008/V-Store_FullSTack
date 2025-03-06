@@ -180,7 +180,7 @@ const checkOut = () => {
 
         {/* Proceed to Pay Button */}
         <div className="text-center pb-2">
-          <button  onClick={handleClick} disabled={isTemporary} className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-md font-bold">
+          <button  onClick={handleClick} disabled={isTemporary} className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded-md font-bold">
             {text}
           </button>
         </div>

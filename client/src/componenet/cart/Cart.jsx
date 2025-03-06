@@ -110,7 +110,6 @@ const cart = () => {
     );
   })}
 
-  {/* Footer actions: Checkout and Clear Cart */}
   {cart?.items?.length > 0 && (
     <>
       <div className="flex justify-center gap-4 mt-6">

@@ -11,6 +11,7 @@ import CheckOut from './componenet/CheckOut/CheckOUt'
 import { ToastContainer, toast ,Bounce} from 'react-toastify';
 import Address from './componenet/Address'
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from './componenet/Footer'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 
@@ -28,7 +29,7 @@ function App() {
 
   return (
 
-    <div>
+    <div className='max-w-[1440px] mx-auto'>
     <ToastContainer />
     <Router>
     <Navbar/>
@@ -45,6 +46,7 @@ function App() {
         <Route path='/checkout' element={<CheckOut />} />
   
       </Routes>
+      <Footer/>
     </Router>
     </div>
   )
