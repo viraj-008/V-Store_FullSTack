@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import {useEffect} from 'react'
 import ShowProducts from './componenet/products/ShowProducts'
 import ProductDetail from './componenet/products/ProductDetail'
 import Navbar from './componenet/Navbar'
@@ -8,7 +8,7 @@ import Login from './componenet/user/Login'
 import Profile from './componenet/user/Profile'
 import Cart from './componenet/cart/Cart'
 import CheckOut from './componenet/CheckOut/CheckOUt'
-import { ToastContainer, toast ,Bounce} from 'react-toastify';
+import { ToastContainer,} from 'react-toastify';
 import Address from './componenet/Address'
 import 'react-toastify/dist/ReactToastify.css';
 import Footer from './componenet/Footer'

@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import axios from 'axios';
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
@@ -14,18 +14,18 @@ const checkOut = () => {
   const [qty, setQty] = useState(0)
   const [userAdressData, setUserAdressData] = useState("")
 
- const [text, setText] = useState("Proceed to Pay");
- const [isTemporary, setIsTemporary] = useState(false);
+  const [text, setText] = useState("Proceed to Pay");
+  const [isTemporary, setIsTemporary] = useState(false);
 
- const handleClick = () => {
-  setText("We are unable to process payments at the moment");
-  setIsTemporary(true);
+  const handleClick = () => {
+    setText("We are unable to process payments at the moment");
+    setIsTemporary(true);
 
-  setTimeout(() => {
-    setText("Proceed to Pay");
-    setIsTemporary(false);
-  }, 2000); // Change back after 2 seconds
-};
+    setTimeout(() => {
+      setText("Proceed to Pay");
+      setIsTemporary(false);
+    }, 2000); // Change back after 2 seconds
+  };
 
 
 
@@ -68,7 +68,7 @@ const checkOut = () => {
 
 
   const product = buyNowProduct || JSON.parse(localStorage.getItem('buyNowProduct'));
-  
+
 
   return (
     <>
@@ -180,7 +180,7 @@ const checkOut = () => {
 
         {/* Proceed to Pay Button */}
         <div className="text-center pb-2">
-          <button  onClick={handleClick} disabled={isTemporary} className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded-md font-bold">
+          <button onClick={handleClick} disabled={isTemporary} className="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded-md font-bold">
             {text}
           </button>
         </div>
