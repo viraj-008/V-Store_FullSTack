@@ -1,4 +1,3 @@
-import React from 'react'
 import { FaUser } from "react-icons/fa";
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
@@ -9,12 +8,13 @@ function Profile() {
   
   return (
   <>
-    <div className='bg-sky-800  h-screen'>
+    <div className='bg-gray-800  h-screen'>
 
-    <div className='w-[90%] md:w-[40%] p-2 flex flex-col justify-center items-start border-2  mx-auto relative bg-gray-600 rounded-md top-[20%]'>
-     <FaUser  ></FaUser>
-    <h1 className='flex'>      <div className='flex '></div><span className='text-black underline mr-2 font-semibold'>YOUR NAME -</span> {user?.name}</h1>
-    <h1><span className='text-black underline mr-2 font-semibold'>YOUR EMAIL-</span> {user?.email}</h1>
+    <div className='flex flex-col justify-center  items-center text-start p-12'>
+     <FaUser className='text-8xl border rounded-full bg-black p-2' />
+    
+  <h1><span className='text-blue-500 text-xl'>Name: </span> {user?.name}</h1> 
+  <h1><span className='text-red-400'>Email: </span> {user?.email}</h1> 
     </div>
 
     </div>

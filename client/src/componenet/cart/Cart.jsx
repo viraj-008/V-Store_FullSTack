@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import AppContext from '../../context/AppContext'
 import { useContext } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MdOutlineShoppingCartCheckout } from "react-icons/md";
+
 
 const cart = () => {
     const {cart,decraseQty,addToCart,removeProduct,clearCart} = useContext(AppContext)
@@ -28,8 +30,8 @@ const cart = () => {
   {cart?.items?.length === 0 ? (
     <>
       <Link to="/">
-        <h1 className="text-black text-center mt-48 font-semibold rounded-md bg-blue-500 w-4/5 md:w-1/3 lg:w-1/4 mx-auto p-2 hover:bg-blue-700">
-          Continue Shopping...
+        <h1 className="text-white text-center mt-48 font-semibold rounded-md bg-blue-500 w-4/5 md:w-1/3 lg:w-1/4 mx-auto p-2 hover:bg-blue-700">
+        <MdOutlineShoppingCartCheckout className='text-yellow-400 text-3xl mx-auto'/> Continue...
         </h1>
       </Link>
     </>

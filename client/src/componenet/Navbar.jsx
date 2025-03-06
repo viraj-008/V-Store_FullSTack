@@ -46,10 +46,10 @@ function Navbar() {
     {/* Desktop Navbar */}
     <div className="hidden md:flex justify-between items-center p-3 bg-gradient-to-r from-blue-700 to-blue-400 shadow-2xl sticky top-0 left-0 right-0 z-10">
       <div className="flex items-center gap-1">
-        <Link to="/">
-        <FcShop className='text-3xl' />
+        <Link to="/" className='flex items-center gap-1 text-blue-200 shadow-md px-2 rounded-md '>
+        <FcShop className='text-3xl'  />
+      𝓥-𝓼𝓽𝓸𝓻𝓮
         </Link>
-        <span className="  "></span> <h1 className='text-yellow-400 font-exo font-semibold'>V-Store</h1>
       </div>
 
       <form className="flex w-1/2">
@@ -106,20 +106,20 @@ function Navbar() {
 
     {/* Mobile Navbar */}
     <div className="md:hidden flex justify-between items-center p-3 bg-blue-400 shadow-lg sticky top-0 left-0 right-0 z-10">
-      <Link to="/">
-      <FcShop className='text-3xl' />
+      <Link to="/" className='flex items-center gap-1 text-blue-900 shadow-md px-2 rounded-md '>
+      <FcShop className='text-3xl' onClick={() => setIsOpen(false)}/> 𝓥-𝓼𝓽𝓸𝓻𝓮
       </Link>
       
-      <button onClick={() => setIsOpen(!isOpen)} className="text-white text-2xl">
-        {isOpen ? <RiCloseLargeLine /> : <GiHamburgerMenu />}
+      <button onClick={() => setIsOpen(!isOpen)} className="text-black text-2xl">
+        {isOpen ? <RiCloseLargeLine  className="text-[16px] text-center  mr-1" /> : <GiHamburgerMenu />}
       </button>
 
       {isOpen && (
         <div className="absolute top-[51px] right-0 w-40 bg-blue-400 rounded-b-md shadow-md p-2">
           {isAuthent ? (
             <>
-              <Link to="/cart" className="block font-semibold py-2 text-gray-600 hover:text-white">Cart <span className='text-black'>({cart?.items?.length || 0})</span></Link>
-              <Link to="/profile" className="block font-semibold py-2 text-gray-600 hover:text-whit">Perofile</Link>
+              <Link to="/cart" className="block font-semibold py-2 text-blue-800" onClick={() => setIsOpen(!isOpen)}>Cart <span className='text-black'>({cart?.items?.length || 0})</span></Link>
+              <Link to="/profile" className="block font-semibold py text-blue-800" onClick={() => setIsOpen(!isOpen)}>Profile</Link>
               <button
                 className="w-full text-left text-red-600 font-semibold py-2 hover:text-red-700"
                 onClick={() => {
