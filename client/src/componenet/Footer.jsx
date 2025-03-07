@@ -12,6 +12,7 @@ const Footer = () => {
           <h2 className="text-[12px] text-gray-700 font-bold">Vivek Kumar</h2>
           <p className="text-gray-400">Full-Stack Developer | MERN | Next.js</p>
           <p className="text-gray-400">virajshekhar008@gmail.com</p>
+          <p className="text-gray-400">+91 8545056990</p>
         </div>
 
         {/* Social Links */}
