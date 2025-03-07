@@ -8,7 +8,7 @@ function Profile() {
   
   return (
   <>
-    <div className='bg-gray-800  h-screen'>
+    <div className='bg-gray-800  h-[900px]'>
 
     <div className='flex flex-col justify-center  items-center text-start p-12'>
      <FaUser className='text-8xl border rounded-full bg-black p-2' />
