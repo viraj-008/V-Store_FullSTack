@@ -133,8 +133,8 @@ function Navbar() {
             </>
           ) : (
             <>
-              <Link to="/login" className="block py-2 text-white hover:text-black">Login</Link>
-              <Link to="/register" className="block py-2 text-white hover:text-black">Register</Link>
+              <Link to="/login" onClick={() => setIsOpen(!isOpen)} className="block py-2 text-white hover:text-black">Login</Link>
+              <Link to="/register" onClick={() => setIsOpen(!isOpen)} className="block py-2 text-white hover:text-black">Register</Link>
             </>
           )}
         </div>
