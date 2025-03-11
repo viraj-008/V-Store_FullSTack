@@ -32,8 +32,8 @@ const AppState = (props) => {
     }
   }, [buyNowProduct]);
   
-
-  const url = "http://localhost:1000/api"
+ 
+  const url ="https://v-store-fullstack.onrender.com/api"
 
   useEffect(() => {
 
