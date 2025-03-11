@@ -109,6 +109,20 @@ function Navbar() {
       <Link to="/" className='flex items-center gap-1 text-blue-900 shadow-md px-2 rounded-md '>
       <FcShop className='text-3xl' onClick={() => setIsOpen(false)}/> 𝓥-𝓼𝓽𝓸𝓻𝓮
       </Link>
+
+      <form className="flex w-[100px]">
+        <input
+          className="w-full rounded-md outline-none bg-blue-500 text-black px-3 py-1 placeholder:text-[13px]"
+          value={search}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          type="text"
+          placeholder="Search"
+        />
+        <button type="submit" onClick={submitHandle} className="relative right-6 mt-1">
+          <IoSearchSharp className="text-md text-white" />
+        </button>
+      </form>
+
       
       <button onClick={() => setIsOpen(!isOpen)} className="text-black text-2xl">
         {isOpen ? <RiCloseLargeLine  className="text-[16px] text-center  mr-1" /> : <GiHamburgerMenu />}

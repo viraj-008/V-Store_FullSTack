@@ -11,7 +11,7 @@ function ProductDetail() {
     const { id } = useParams();
     const navigate=useNavigate()
 
-    const url = "http://localhost:1000/api"
+    const url = "https://v-store-fullstack.onrender.com/api"
     useEffect(() => {
         
         const fetchProduct = async () => {
