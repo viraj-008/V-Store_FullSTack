@@ -1,11 +1,8 @@
-import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import AppContext from './AppContext.jsx'
 import axios from 'axios'
-
-
-import { ToastContainer, toast, Bounce } from 'react-toastify';
+import { toast, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -22,7 +19,20 @@ const AppState = (props) => {
   const [reloed,setreloed] = useState(false)
   const [cartloed, setCartloed] = useState(false)
   
+  const [buyNowProduct, setBuyNowProduct] = useState(() => {
+    const storedProduct = localStorage.getItem('buyNowProduct');
+    return storedProduct ? JSON.parse(storedProduct) : null;
+  });
   
+  useEffect(() => {
+    if (buyNowProduct) {
+      localStorage.setItem('buyNowProduct', JSON.stringify(buyNowProduct));
+    } else {
+      localStorage.removeItem('buyNowProduct');
+    }
+  }, [buyNowProduct]);
+  
+
   const url = "http://localhost:1000/api"
 
   useEffect(() => {
@@ -60,12 +70,12 @@ const AppState = (props) => {
         },
         withCredentials: true
       });
-
-      console.log("user registered", api)
-      return api
+     console.log(api)
+      return api 
 
     } catch (err) {
-      console.log('ere catc', api)
+      console.log('errr', err.response.data.message)
+      toast.error(err.response.data.message)
     }
   }
 
@@ -78,7 +88,7 @@ const AppState = (props) => {
         },
         withCredentials: true
       });
-
+  console.log(api.data.message)
       toast(api.data.message, {
         position: "top-right",
         autoClose: 5000,
@@ -163,6 +173,7 @@ useEffect(()=>{
         },
         withCredentials: true
       });
+      console.log(api.data.message)
     toast(api.data.message, {
       position: "top-right",
       autoClose: 5000,
@@ -175,7 +186,7 @@ useEffect(()=>{
       transition: Bounce,
     })
 
-    setreloed(!reloed)
+    setreloed((prev) => !prev);
     };
 
     //  get users cart item 
@@ -193,6 +204,7 @@ useEffect(()=>{
       setCart(api.data.cart)
     };
 
+    
     // decrese product id 
     const decraseQty = async (productId,qty) => {
       const api = await axios.post(`${url}/cart/--qty`,{productId,qty}, {
@@ -294,6 +306,9 @@ const getAddress = async (fullName,country,state,city,pincode,phoneNumber, adres
   setUserAdress(api.data.userAdrss)
 
 }
+useEffect(() => {
+  getAddress();
+}, []);
   return (
     <AppContext.Provider value={{
       products,
@@ -305,10 +320,11 @@ const getAddress = async (fullName,country,state,city,pincode,phoneNumber, adres
       url,
       filterProducts,
       setFilteredProducts,
-      logOutUser,
-      isAuthent,
+      logOutUser,   
       user,
       addToCart,
+      buyNowProduct, 
+      setBuyNowProduct,
       cart,
       cartloed,
       decraseQty,
