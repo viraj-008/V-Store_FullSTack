@@ -7,7 +7,7 @@ import Register from '../src/componenet/user/Register'
 import Login from './componenet/user/Login'
 import Profile from './componenet/user/Profile'
 import Cart from './componenet/cart/Cart'
-import CheckOut from './componenet/CheckOut/CheckOUt'
+import CheckOUt from './componenet/checkOut/CheckOUt'
 import { ToastContainer,} from 'react-toastify';
 import Address from './componenet/Address'
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,7 +43,7 @@ function App() {
         <Route path='/profile' element={<Profile/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path='/adress' element={<Address />} />
-        <Route path='/checkout' element={<CheckOut />} />
+        <Route path='/checkout' element={<CheckOUt/>} />
   
       </Routes>
       <Footer/>
