@@ -9,7 +9,7 @@ function ShowProducts() {
   return (
     <div className="">
 
- {filterProducts.length === 0 ? <div className='text-xl min-h-[50vh] text-center font-sans font-bold text-black p-5'>Loading...</div> : null}
+ {filterProducts.length === 0 ? <div className='text-xl min-h-[60vh] text-center font-sans font-bold text-black p-5'>Loading...</div> : null}
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 px-4" >
 
       {filterProducts ? filterProducts.map((data) => (
