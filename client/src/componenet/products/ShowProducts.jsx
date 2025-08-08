@@ -4,12 +4,17 @@ import AppContext from '../../context/AppContext';
 
 function ShowProducts() {
   const {  filterProducts, addToCart } = useContext(AppContext);
+  console.log(filterProducts)
 
   return (
+    <div className="">
+
+ {filterProducts.length === 0 ? <div className='text-xl min-h-[50vh] text-center font-sans font-bold text-black p-5'>Loading...</div> : null}
     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6 px-4" >
-      {filterProducts?.map((data) => (
+
+      {filterProducts ? filterProducts.map((data) => (
         <div data-aos="fade-right"
-          className="bg-white mb-4 lg:min-w-[310px]  max-w-[400px]  rounded-lg shadow-lg overflow-hidden ring-2 ring-red-700 ring-opacity-40 mx-auto"
+          className="bg-white mb-4 lg:min-w-[400px]  max-w-[400px]  rounded-lg shadow-lg overflow-hidden ring-2 ring-red-700 ring-opacity-40 mx-auto"
           key={data._id}
         >
           <div className="relative" >
@@ -21,7 +26,7 @@ function ShowProducts() {
               />
             </Link>
             <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-md text-sm font-medium">
-              SALE
+              SALE 
             </div>
           </div>
           <div className="p-4">
@@ -50,14 +55,21 @@ function ShowProducts() {
                 className="bg-blue-500 text-[8px]  sm:text-[10px] hover:bg-blue-600 text-white font-bold py-1 px-2 rounded "
               >
                 Add to Cart
-              </button>
+              </button> 
+
+               
             </div>
             </div>
           </div>
         </div>
-      ))}
+      )) : <h1 className='text-red-800 h-7 p-5'>No Products Found</h1>}
+
+       
     </div>
+    
+      </div>
   );
+
 }
 
 export default ShowProducts;
