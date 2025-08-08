@@ -52,6 +52,8 @@ function Navbar() {
         </Link>
       </div>
 
+
+{location.pathname === "/" && (
       <form className="flex w-1/2">
         <input
           className="w-full rounded-md outline-none bg-blue-800 text-black px-3 py-1"
@@ -64,6 +66,7 @@ function Navbar() {
           <IoSearchSharp className="text-xl text-white" />
         </button>
       </form>
+      )}
 
       <div className="flex items-center gap-6">
         {isAuthent ? (
@@ -110,6 +113,8 @@ function Navbar() {
       <FcShop className='text-3xl' onClick={() => setIsOpen(false)}/> 𝓥-𝓼𝓽𝓸𝓻𝓮
       </Link>
 
+ {location.pathname === "/" && (
+     
       <form className="flex w-[100px]">
         <input
           className="w-full rounded-md outline-none bg-blue-500 text-black px-3 py-1 placeholder:text-[13px]"
@@ -122,6 +127,7 @@ function Navbar() {
           <IoSearchSharp className="text-md text-white" />
         </button>
       </form>
+    )}
 
       
       <button onClick={() => setIsOpen(!isOpen)} className="text-black text-2xl">
