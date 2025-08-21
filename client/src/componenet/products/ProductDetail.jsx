@@ -39,7 +39,7 @@ function ProductDetail() {
     return (
         <div className=' bg-white mx-auto '>
         <div>
-        <img src={product.imgSrc} className='w-[90%] md:w-[33%] border rounded-md  mx-auto mt-2'/></div>
+        <img src={product.imgSrc} className='w-[90%] md:w-[33%]  min-h-[300px] border rounded-md  mx-auto mt-2'/></div>
         <div className='w-[90%] md:w-[50%] text-center  mx-auto text-2xl bg-gray-600 rounded-lg mt-4 p-2   leading-10  justify-between'>
             <h1 className='bg-yellow-400 rounded-md '><span className='text-black font-bold'>TITLE:</span> {product.title}</h1>
             <h1 className='bg-green-700 my-2 rounded-md '><span className='text-black font-bold'>PRICE:</span> {product.price} rs</h1>
