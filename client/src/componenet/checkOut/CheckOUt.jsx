@@ -54,7 +54,7 @@ const checkOut = () => {
 
   useEffect(() => {
     const userAdressDdta = async () => {
-      const api = await axios.get(`http://localhost:1000/api/adress/get/`, {
+      const api = await axios.get(`https://v-store-fullstack.onrender.com/api/adress/get/`, {
         headers: {
           "Content-Type": "Application/json",
           "Auth": token

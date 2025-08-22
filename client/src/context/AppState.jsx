@@ -174,18 +174,7 @@ useEffect(()=>{
         withCredentials: true
       });
       console.log(api.data.message)
-    toast(api.data.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-      transition: Bounce,
-    })
-
+   
     setreloed((prev) => !prev);
     };
 
@@ -246,7 +235,7 @@ console.log('remoce item from cart',api)
 
 
 // clear cart 
-const clearCart = async (productId) => {
+const clearCart = async () => {
   const api = await axios.delete(`${url}/cart/clear/`,{
     headers: {
       "Content-Type": "Application/json",
@@ -294,7 +283,7 @@ const shipingAddress = async (fullName,country,state,city,pincode,phoneNumber, a
   return api
 }
 
-const getAddress = async (fullName,country,state,city,pincode,phoneNumber, adress) => {
+const getAddress = async () => {
   const api = await axios.get(`${url}/adress/get/`,{
     headers: {
       "Content-Type": "Application/json",

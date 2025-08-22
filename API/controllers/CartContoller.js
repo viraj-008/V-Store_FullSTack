@@ -95,5 +95,5 @@ return res.json({message:"invalid produc id"})
 
    await cart.save()
 
-   res.json({message:"items qty cdecreased",cart})
+   res.json({message:"items qty decreased",cart})
 }

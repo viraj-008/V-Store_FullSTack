@@ -70,12 +70,12 @@ const cart = () => {
           <div className="flex flex-col font-bold text-black">
             <span>Title:  <span className='md:hidden ml-4 text-[12px] '>{data.title}</span></span>
             <span>Price:  <span className='md:hidden ml-4 text-[12px] '>Rs. {data.price}</span></span>
-            <span>Quantity:  <span className='md:hidden ml-4 text-[12px] '>{data.qty}</span></span>
+            <span>Quantity:  <span className='md:hidden ml-4 text-[22px] text-red-900 font-bold '>{data.qty}</span></span>
           </div>
           <div className="flex flex-col text-red-900 font-serif text-sm ml-2 md:ml-6 text-start">
             <span className='hidden md:block'>{data.title}</span>
-            <span className='hidden md:block'>Rs. {data.price}</span>
-            <span className='hidden md:block'>{data.qty}</span>
+            <span className='hidden md:block'><span className='text-black'>Rs.</span> {data.price}</span>
+            <span className='hidden md:block text-[22px] text-red-900 font-bold'>{data.qty}</span>
           </div>
         </div>
 
